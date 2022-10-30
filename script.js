@@ -12,7 +12,7 @@ sliderItems.forEach((el,i) => {
 sliderContent.insertBefore(sliderItems[sliderItems.length-1].cloneNode(true),sliderContent.firstChild);
 sliderContent.style.transform = 'translateX(calc(-100%/3))';
 
-rightButton.addEventListener('click', () => {
+const moveSliderRight = () => {
     const renderedSlide = document.querySelector('.slider-item');
     nextSlide++;
     previousSlide++;
@@ -28,9 +28,9 @@ rightButton.addEventListener('click', () => {
         renderedSlide.remove();
         rightButton.removeAttribute('disabled');
     },300)
-});
+}
 
-leftButton.addEventListener('click',() => {
+const moveSliderLeft = () => {
     const renderedSlides = document.querySelectorAll('.slider-item');
     previousSlide--;
     nextSlide--;
@@ -46,5 +46,8 @@ leftButton.addEventListener('click',() => {
         renderedSlides[renderedSlides.length-1].remove();
         leftButton.removeAttribute('disabled');
     },300)
-})
+}
 
+rightButton.addEventListener('click', moveSliderRight);
+
+leftButton.addEventListener('click', moveSliderLeft);
