@@ -84,10 +84,10 @@ const mouseUpHandle = () => {
 }
 
 slider.addEventListener('mousedown', mouseDownHandle);
-slider.addEventListener('mousemove', mouseMoveHandle);
-slider.addEventListener('mouseup', mouseUpHandle);
+document.documentElement.addEventListener('mousemove', mouseMoveHandle);
+document.documentElement.addEventListener('mouseup', mouseUpHandle);
 
 slider.addEventListener('touchstart', e => mouseDownHandle(e.changedTouches[0]));
-slider.addEventListener('touchmove', e => mouseMoveHandle(e.changedTouches[0]));
-slider.addEventListener('touchend', e => mouseUpHandle(e.changedTouches[0]));
+document.documentElement.addEventListener('touchmove', e => mouseMoveHandle(e.changedTouches[0]));
+document.documentElement.addEventListener('touchend', e => mouseUpHandle(e.changedTouches[0]));
 
